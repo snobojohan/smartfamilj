@@ -1,0 +1,44 @@
+/* Blue Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #3536fc;
+  --primary-hover: #0203b0;
+  --primary-focus: rgba(53, 54, 252, 0.125);
+  --primary-inverse: rgba(0, 0, 0, 0.75);
+}
+
+/* Yellow Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary: #fdd835;
+    --primary-hover: #ffeb3b;
+    --primary-focus: rgba(253, 216, 53, 0.25);
+    --primary-inverse: rgba(0, 0, 0, 0.75);
+  }
+}
+
+/* (Common styles) */
+:root {
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+  font-family: "Avenir", "Avenir Next", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Customizations */
+
+[data-theme="light"] header > nav > ul > li > a > img {
+  content: url("/static/img/logo-dark.png");
+}
+
+[data-theme="dark"] header > nav > ul > li > a > img {
+  content: url("/static/img/logo-light.png");
+}
+
+header > nav > ul > li > a[data-current="current item"] {
+  background-color: var(--primary-focus);
+}
